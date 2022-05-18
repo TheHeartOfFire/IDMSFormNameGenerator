@@ -38,8 +38,8 @@
             </Setter>
         </Style>
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="0.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="1.0"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FF7B68EE"/>
         <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF7B68EE"/>
@@ -48,29 +48,29 @@
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="0.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="1.0"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FF7B68EE"/>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FF7B68EE"/>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="#FF7B68EE"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="0.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="1.0"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="#FF7B68EE"/>
         <LinearGradientBrush x:Key="ComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="0.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="1.0"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="#FF7B68EE"/>
         <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="#FF7B68EE"/>
-        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Background" Color="#FF0F0B1E"/>
         <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Border" Color="#FF7B68EE"/>
         <LinearGradientBrush x:Key="ComboBox.Pressed.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Transparent" Offset="0.0"/>
-            <GradientStop Color="Transparent" Offset="1.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="0.0"/>
+            <GradientStop Color="#FF0F0B1E" Offset="1.0"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Button.Border" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Disabled.Background" Color="Transparent"/>
@@ -182,8 +182,8 @@
                     <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
                 </Grid.ColumnDefinitions>
                 <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}">
-                    <theme:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
-                        <Border x:Name="dropDownBorder" Background="Transparent" BorderBrush="{DynamicResource ComboBox.MouseOver.Border}" BorderThickness="1">
+                    <theme:SystemDropShadowChrome x:Name="shadow" Color="#FF0F0B1E" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                        <Border x:Name="dropDownBorder" Background="#FF0F0B1E" BorderBrush="{DynamicResource ComboBox.MouseOver.Border}" BorderThickness="1">
                             <ScrollViewer x:Name="DropDownScrollViewer">
                                 <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                                     <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
@@ -403,44 +403,41 @@
             <RowDefinition Height="50" MinHeight="50" MaxHeight="50"/>
             <RowDefinition Height="33" MaxHeight="33" MinHeight="33"/>
             <RowDefinition Height="50" MaxHeight="50" MinHeight="50"/>
-            <RowDefinition Height="120*" MinHeight="120"/>
-            <RowDefinition Height="33" MaxHeight="33" MinHeight="33"/>
+            <RowDefinition Height="40*" MinHeight="80"/>
+            <RowDefinition Height="10*" MaxHeight="33" MinHeight="10"/>
+            <RowDefinition Height="12*" MaxHeight="33" MinHeight="12"/>
+            <RowDefinition Height="10*" MaxHeight="33" MinHeight="10"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lblState" Content="State" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="5,0,0,0"/>
-        <Label x:Name="lblOEM" Content="OEM / Dealer" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="4,0,0,0" Width="129" Grid.Column="1"/>
-        <Label x:Name="lblBank" Content="Provider / Bank" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Width="145" Grid.Column="2"/>
-        <ComboBox TextBoxBase.TextChanged="UpdateFormName" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{DynamicResource ComboBoxStyle1}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="cboStates" Foreground="MediumSlateBlue" IsEditable="True" FontSize="18" Grid.Row="1" Margin="5,5,5,5"/>
-        <Controls:NewTextBox x:Name="txtOEMDealer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" OnTextChanged="UpdateFormName" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5"/>
-        <Controls:NewTextBox x:Name="txtCoBank" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" OnTextChanged="UpdateFormName" Text="" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="5,5,5,5"/>
-        <Label x:Name="lblName" Content="Form Name" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="2"/>
+        <Label x:Name="lblState" Content="State" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="5,0,0,0" Width="54"/>
+        <Label x:Name="lblIDMS" Content="FEX / IDMS #" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="111,0,0,0" Width="129"/>
+        <Label x:Name="lblDlrName" Content="Instution / Provider Name" HorizontalAlignment="Center" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Width="240" Grid.Column="1"/>
+        <Label x:Name="lblVariation" Content="Variation" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Width="240" Grid.Column="2"/>
+        <ComboBox TextBoxBase.TextChanged="UpdateFormName" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{DynamicResource ComboBoxStyle1}" x:Name="cboStates" Foreground="MediumSlateBlue" IsEditable="True" FontSize="18" Grid.Row="1" Margin="5,5,165,5" Text="MULTI"/>
+        <Controls:NewTextBox x:Name="txtIDMS" OnTextChanged="UpdateFormName" Grid.Row="1" Margin="120,5,0,5" Text="" HorizontalAlignment="Left" Width="77"/>
+        <Controls:NewTextBox x:Name="txtDlrName" OnTextChanged="UpdateFormName" Text="" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5"/>
+        <Controls:NewTextBox x:Name="txtVariation" OnTextChanged="UpdateFormName" Text="" Grid.Row="1" Grid.Column="2" Margin="5,5,5,5"/>
+        <Label x:Name="lblName" Content="Form Name" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="2" Width="114"/>
         <Controls:ToggleSwitch x:Name="tglFormNameTitle" HorizontalAlignment="Left" Height="22" VerticalAlignment="Center" Width="50" Margin="121,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName" IsOn="True" Grid.Row="2"/>
         <Label x:Name="lblTitleCase" Content="Title" HorizontalAlignment="Left" Margin="176,0,0,0" Foreground="MediumSlateBlue" Grid.Row="2" Width="32" VerticalAlignment="Bottom" Height="26"/>
         <Controls:NewTextBox x:Name="txtFormName" OnTextChanged="UpdateFormName" Grid.Row="3" Margin="5,5,5,5" Grid.ColumnSpan="3"/>
-        <Label x:Name="lblCode" Content="Form Code" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="4"/>
+        <Label x:Name="lblCode" Content="Form Code" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="4" Width="107"/>
         <Controls:ToggleSwitch x:Name="tglFormCodeCAPS" HorizontalAlignment="Left" Height="22" VerticalAlignment="Bottom" Width="50" Margin="116,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName" IsOn="True" Grid.Row="4"/>
         <Label x:Name="lblCodeCaps" Content="CAPS" HorizontalAlignment="Left" Margin="171,0,0,0" VerticalAlignment="Bottom" Foreground="MediumSlateBlue" Grid.Row="4" Width="38" Height="26"/>
-        <Controls:NewTextBox x:Name="txtCode" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" OnTextChanged="UpdateFormName" Grid.Row="5" Margin="5,5,5,5"/>
-        <Label x:Name="lblDate" Content="Revision Date" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="5,0,0,0" Grid.Row="4" Width="130" Grid.Column="1"/>
-        <Controls:NewTextBox x:Name="txtDate" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" OnTextChanged="UpdateFormName" Grid.Row="5" Grid.Column="1" Margin="5,5,5,5"/>
-        <TextBox x:Name="txtOutput" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" Background="Black" BorderBrush="MediumSlateBlue" SelectionBrush="MediumSlateBlue" Foreground="White" SelectionTextBrush="MediumSlateBlue" CaretBrush="MediumSlateBlue" IsReadOnly="True" PreviewMouseUp="txtOutput_PreviewMouseUp" PreviewMouseLeftButtonUp="txtOutput_PreviewMouseLeftButtonUp" Grid.Row="7" Grid.ColumnSpan="5" Margin="5,0,5,10"/>
-        <Grid x:Name="grdProperties" HorizontalAlignment="Right" Height="195" VerticalAlignment="Bottom" Width="245" Grid.Row="4" Grid.RowSpan="3" Grid.Column="3" Margin="0,0,5,5">
-            <Rectangle x:Name="rectBackground" HorizontalAlignment="Stretch" Stroke="MediumSlateBlue" StrokeThickness="2" Width="245"/>
+        <Controls:NewTextBox x:Name="txtCode" OnTextChanged="UpdateFormName" Grid.Row="5" Margin="5,5,5,5"/>
+        <Label x:Name="lblDate" Content="Revision Date" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="5,0,0,0" Grid.Row="4" Width="130" Grid.Column="1"/>
+        <Controls:NewTextBox x:Name="txtDate" OnTextChanged="UpdateFormName" Grid.Row="5" Grid.Column="1" Margin="5,5,5,5"/>
+        <TextBox x:Name="txtFileName" TextWrapping="Wrap" Background="Black" BorderBrush="MediumSlateBlue" SelectionBrush="MediumSlateBlue" Foreground="White" SelectionTextBrush="MediumSlateBlue" CaretBrush="MediumSlateBlue" IsReadOnly="True" PreviewMouseUp="txtOutput_PreviewMouseUp" PreviewMouseLeftButtonUp="txtOutput_PreviewMouseLeftButtonUp" Grid.Row="7" Grid.ColumnSpan="2"/>
+        <Grid x:Name="grdProperties" Grid.Row="6" Grid.Column="2" Grid.RowSpan="4">
+            <Rectangle x:Name="rectBackground" HorizontalAlignment="Stretch" Stroke="MediumSlateBlue" StrokeThickness="2" Margin="2,2,2,2"/>
             <Label x:Name="lblProperties" Content="Form Properties" HorizontalAlignment="Left" Margin="10,-2,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue" Background="#FF0F0B1E" FontSize="18"/>
-            <Controls:ToggleSwitch x:Name="tglFormType" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="78,37,0,0" BorderThickness1="5" HandleOff="MediumSlateBlue" MouseLeftButtonDown="UpdateFormName"/>
-            <Label Content="Laser" HorizontalAlignment="Left" Margin="36,36,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Label Content="Impact" HorizontalAlignment="Left" Margin="133,36,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Label Content="LAW" HorizontalAlignment="Left" Margin="113,104,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Label Content="Custom" HorizontalAlignment="Left" Margin="111,135,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Label Content="Vehicle Merchandicing" HorizontalAlignment="Left" Margin="111,164,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Controls:ToggleSwitch x:Name="tglNewUsed" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="78,70,0,0" BorderThickness1="5" HandleOff="MediumSlateBlue" MouseLeftButtonDown="UpdateFormName" ThreeState="True"/>
-            <Label Content="Sold" HorizontalAlignment="Left" Margin="36,69,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Label Content="Trade" HorizontalAlignment="Left" Margin="133,69,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Controls:ToggleSwitch x:Name="tglLAW" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="55,106,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName"/>
-            <Controls:ToggleSwitch x:Name="tglCustom" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="55,137,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName"/>
-            <Controls:ToggleSwitch x:Name="tglVM" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="56,169,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName"/>
+            <Label Content="Version 2 Document" HorizontalAlignment="Center" Margin="0,73,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
+            <Controls:ToggleSwitch x:Name="tglV2" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="5,78,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName"/>
+            <ComboBox TextBoxBase.TextChanged="UpdateFormName" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{DynamicResource ComboBoxStyle1}" x:Name="cboDocType" Foreground="MediumSlateBlue" IsEditable="True" FontSize="18" VerticalAlignment="Top" Margin="5,38,5,0"/>
         </Grid>
-        <Button Style="{DynamicResource ButtonStyle1}" BorderBrush="MediumSlateBlue" Foreground="MediumSlateBlue" Background="{x:Null}" Click="Button_Click" Content="Clear" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="26" Grid.Row="6" Margin="60,0,0,5"/>
-        <Button x:Name="tglNotes_CopyAll" Style="{DynamicResource ButtonStyle1}" BorderBrush="MediumSlateBlue" Foreground="MediumSlateBlue" Background="{x:Null}" Click="Button_Click_1" Margin="5,0,0,5" Content="Copy" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50" Height="26" Grid.Row="6"/>
+        <TextBox x:Name="txtFileName_Copy" TextWrapping="Wrap" Background="Black" BorderBrush="MediumSlateBlue" SelectionBrush="MediumSlateBlue" Foreground="White" SelectionTextBrush="MediumSlateBlue" CaretBrush="MediumSlateBlue" IsReadOnly="True" PreviewMouseUp="txtOutput_PreviewMouseUp" PreviewMouseLeftButtonUp="txtOutput_PreviewMouseLeftButtonUp" Grid.Row="9" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblFileName" Content="File Name" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" Grid.Row="6" VerticalAlignment="Bottom" Margin="5,5,0,0"/>
+        <Label x:Name="lblDocName" Content="Document Name" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" Grid.Row="8" Margin="5,0,0,0" VerticalAlignment="Stretch"/>
+
 
 
     </Grid>
