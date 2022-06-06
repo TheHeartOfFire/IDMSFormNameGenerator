@@ -211,5 +211,10 @@ namespace IDMSFormNameGenerator
             CloseAllPages();
             Prompts.Visibility = Visibility.Visible;
         }
+
+        private void FileNameGen_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -35,62 +35,42 @@ namespace IDMSFormNameGenerator.Pages
             cboDocType.SelectedIndex = 0;
         }
 
-        private void UpdateFormName()
+        private void UpdateFileName()
         {
-            //if (tglFormType.IsOn == false && tglLAW.IsOn == true)
-            //{
-            //    txtOutput.Text = LaserLaw();
-            //    return;
-            //}
-            //if (tglFormType.IsOn == false)
-            //{
-            //    txtOutput.Text = Laser();
-            //    return;
-            //}
-            //if (tglFormType.IsOn == true && tglLAW.IsOn == true)
-            //{
-            //    txtOutput.Text = ImpactLaw();
-            //    return;
-            //}
-            //if (tglFormType.IsOn == true)
-            //{
-            //    txtOutput.Text = Impact();
-            //    return;
-            //}
+            txtFileName.Text = cboDocType.Text switch
+            {
+                "Internal Form" => $"{txtIDMS.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
+                "Third Party Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{txtCode.Text}_{txtDate.Text}_{txtVariation.Text}",
+                "Multi-State / Federal Form" => $"{cboStates.Text}_{txtFormName.Text}_{txtCode.Text}_{txtDate.Text}_{txtVariation.Text}",
+                "Retail Installment Contract" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{txtFormName.Text}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                "Vendor Form" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{txtFormName.Text}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                _ => "Unreachable"
+            };
+        }
+        private void UpdateDocName()
+        {
+            txtFileName_Copy.Text = cboDocType.Text switch
+            {
+                "Internal Form" => $"{txtDlrName.Text}_{txtFormName.Text}",
+                "Third Party Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
+                "Multi-State / Federal Form" => $"{cboStates.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
+                "Retail Installment Contract" => $"{txtFormName.Text}_{cboStates.Text}_{txtVariation.Text}_{txtDate.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                "Vendor Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{cboStates.Text}_{txtVariation.Text}_{txtDate.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                _ => "Unreachable"
+            };
         }
 
-        private string LaserLaw()
+        private void UpdateFileName(object sender, EventArgs e)
         {
-            string result = "LAW ";
-            return result.Replace('/', '-');
+            UpdateFileName();
+            UpdateDocName();
         }
 
-        private string Laser()
+        private void UpdateFileName(object sender, MouseButtonEventArgs e)
         {
-            string result = "";
-            return result.Replace('/', '-');
-        }
+            UpdateFileName();
+            UpdateDocName();
 
-        private string ImpactLaw()
-        {
-            string result = "LAW ";
-            return result.Replace('/', '-');
-        }
-
-        private string Impact()
-        {
-            string result = "";
-            return result.Replace('/', '-');
-        }
-
-        private void UpdateFormName(object sender, EventArgs e)
-        {
-            UpdateFormName();
-        }
-
-        private void UpdateFormName(object sender, MouseButtonEventArgs e)
-        {
-            UpdateFormName();
         }
 
         private void txtOutput_PreviewMouseUp(object sender, MouseButtonEventArgs e)

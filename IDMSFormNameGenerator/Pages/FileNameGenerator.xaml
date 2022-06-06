@@ -412,27 +412,27 @@
         <Label x:Name="lblIDMS" Content="FEX / IDMS #" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="111,0,0,0" Width="129"/>
         <Label x:Name="lblDlrName" Content="Instution / Provider Name" HorizontalAlignment="Center" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Width="240" Grid.Column="1"/>
         <Label x:Name="lblVariation" Content="Variation" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Width="240" Grid.Column="2"/>
-        <ComboBox TextBoxBase.TextChanged="UpdateFormName" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{DynamicResource ComboBoxStyle1}" x:Name="cboStates" Foreground="MediumSlateBlue" IsEditable="True" FontSize="18" Grid.Row="1" Margin="5,5,165,5" Text="MULTI"/>
-        <Controls:NewTextBox x:Name="txtIDMS" OnTextChanged="UpdateFormName" Grid.Row="1" Margin="120,5,0,5" Text="" HorizontalAlignment="Left" Width="77"/>
-        <Controls:NewTextBox x:Name="txtDlrName" OnTextChanged="UpdateFormName" Text="" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5"/>
-        <Controls:NewTextBox x:Name="txtVariation" OnTextChanged="UpdateFormName" Text="" Grid.Row="1" Grid.Column="2" Margin="5,5,5,5"/>
+        <ComboBox TextBoxBase.TextChanged="UpdateFileName" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{DynamicResource ComboBoxStyle1}" x:Name="cboStates" Foreground="MediumSlateBlue" IsEditable="True" FontSize="18" Grid.Row="1" Margin="5,5,165,5" Text="MULTI"/>
+        <Controls:NewTextBox x:Name="txtIDMS" OnTextChanged="UpdateFileName" Grid.Row="1" Margin="120,5,0,5" Text="" HorizontalAlignment="Left" Width="77"/>
+        <Controls:NewTextBox x:Name="txtDlrName" OnTextChanged="UpdateFileName" Text="" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5"/>
+        <Controls:NewTextBox x:Name="txtVariation" OnTextChanged="UpdateFileName" Text="" Grid.Row="1" Grid.Column="2" Margin="5,5,5,5"/>
         <Label x:Name="lblName" Content="Form Name" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="2" Width="114"/>
-        <Controls:ToggleSwitch x:Name="tglFormNameTitle" HorizontalAlignment="Left" Height="22" VerticalAlignment="Center" Width="50" Margin="121,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName" IsOn="True" Grid.Row="2"/>
+        <Controls:ToggleSwitch x:Name="tglFormNameTitle" HorizontalAlignment="Left" Height="22" VerticalAlignment="Center" Width="50" Margin="121,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFileName" IsOn="True" Grid.Row="2"/>
         <Label x:Name="lblTitleCase" Content="Title" HorizontalAlignment="Left" Margin="176,0,0,0" Foreground="MediumSlateBlue" Grid.Row="2" Width="32" VerticalAlignment="Bottom" Height="26"/>
-        <Controls:NewTextBox x:Name="txtFormName" OnTextChanged="UpdateFormName" Grid.Row="3" Margin="5,5,5,5" Grid.ColumnSpan="3"/>
+        <Controls:NewTextBox x:Name="txtFormName" OnTextChanged="UpdateFileName" Grid.Row="3" Margin="5,5,5,5" Grid.ColumnSpan="3"/>
         <Label x:Name="lblCode" Content="Form Code" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="4" Width="107"/>
-        <Controls:ToggleSwitch x:Name="tglFormCodeCAPS" HorizontalAlignment="Left" Height="22" VerticalAlignment="Bottom" Width="50" Margin="116,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName" IsOn="True" Grid.Row="4"/>
+        <Controls:ToggleSwitch x:Name="tglFormCodeCAPS" HorizontalAlignment="Left" Height="22" VerticalAlignment="Bottom" Width="50" Margin="116,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFileName" IsOn="True" Grid.Row="4"/>
         <Label x:Name="lblCodeCaps" Content="CAPS" HorizontalAlignment="Left" Margin="171,0,0,0" VerticalAlignment="Bottom" Foreground="MediumSlateBlue" Grid.Row="4" Width="38" Height="26"/>
-        <Controls:NewTextBox x:Name="txtCode" OnTextChanged="UpdateFormName" Grid.Row="5" Margin="5,5,5,5"/>
+        <Controls:NewTextBox x:Name="txtCode" OnTextChanged="UpdateFileName" Grid.Row="5" Margin="5,5,5,5"/>
         <Label x:Name="lblDate" Content="Revision Date" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="5,0,0,0" Grid.Row="4" Width="130" Grid.Column="1"/>
-        <Controls:NewTextBox x:Name="txtDate" OnTextChanged="UpdateFormName" Grid.Row="5" Grid.Column="1" Margin="5,5,5,5"/>
+        <Controls:NewTextBox x:Name="txtDate" OnTextChanged="UpdateFileName" Grid.Row="5" Grid.Column="1" Margin="5,5,5,5"/>
         <TextBox x:Name="txtFileName" TextWrapping="Wrap" Background="Black" BorderBrush="MediumSlateBlue" SelectionBrush="MediumSlateBlue" Foreground="White" SelectionTextBrush="MediumSlateBlue" CaretBrush="MediumSlateBlue" IsReadOnly="True" PreviewMouseUp="txtOutput_PreviewMouseUp" PreviewMouseLeftButtonUp="txtOutput_PreviewMouseLeftButtonUp" Grid.Row="7" Grid.ColumnSpan="2"/>
         <Grid x:Name="grdProperties" Grid.Row="6" Grid.Column="2" Grid.RowSpan="4">
             <Rectangle x:Name="rectBackground" HorizontalAlignment="Stretch" Stroke="MediumSlateBlue" StrokeThickness="2" Margin="2,2,2,2"/>
             <Label x:Name="lblProperties" Content="Form Properties" HorizontalAlignment="Left" Margin="10,-2,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue" Background="#FF0F0B1E" FontSize="18"/>
             <Label Content="Version 2 Document" HorizontalAlignment="Center" Margin="0,73,0,0" VerticalAlignment="Top" Foreground="MediumSlateBlue"/>
-            <Controls:ToggleSwitch x:Name="tglV2" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="5,78,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFormName"/>
-            <ComboBox TextBoxBase.TextChanged="UpdateFormName" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{DynamicResource ComboBoxStyle1}" x:Name="cboDocType" Foreground="MediumSlateBlue" IsEditable="True" FontSize="18" VerticalAlignment="Top" Margin="5,38,5,0"/>
+            <Controls:ToggleSwitch x:Name="tglV2" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="50" Margin="5,78,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFileName"/>
+            <ComboBox TextBoxBase.TextChanged="UpdateFileName" ItemContainerStyle="{DynamicResource ComboBoxItemContainerStyle1}" Style="{DynamicResource ComboBoxStyle1}" x:Name="cboDocType" Foreground="MediumSlateBlue" IsEditable="True" FontSize="18" VerticalAlignment="Top" Margin="5,38,5,0"/>
         </Grid>
         <TextBox x:Name="txtFileName_Copy" TextWrapping="Wrap" Background="Black" BorderBrush="MediumSlateBlue" SelectionBrush="MediumSlateBlue" Foreground="White" SelectionTextBrush="MediumSlateBlue" CaretBrush="MediumSlateBlue" IsReadOnly="True" PreviewMouseUp="txtOutput_PreviewMouseUp" PreviewMouseLeftButtonUp="txtOutput_PreviewMouseLeftButtonUp" Grid.Row="9" Grid.ColumnSpan="2"/>
         <Label x:Name="lblFileName" Content="File Name" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" Grid.Row="6" VerticalAlignment="Bottom" Margin="5,5,0,0"/>

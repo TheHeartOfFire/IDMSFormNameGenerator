@@ -65,7 +65,7 @@
                         </Button>
                     </Grid>
                     <Pages:HomePage Visibility="Hidden" x:Name="HomePage" Grid.Row="1" Grid.Column="1"/>
-                    <Pages:FileNameGenerator x:Name="FileNameGen" Grid.Row="1" Grid.Column="1"/>
+                    <Pages:FileNameGenerator x:Name="FileNameGen" Grid.Row="1" Grid.Column="1" Loaded="FileNameGen_Loaded"/>
                     <Pages:ClientInfoReport Visibility="Hidden" x:Name="CIR" Grid.Row="1" Grid.Column="1"/>
                     <Pages:Notes Visibility="Hidden" x:Name="Notes" Grid.Row="1" Grid.Column="1"/>
                     <local:SettingsPage x:Name="Settings" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
