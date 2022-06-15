@@ -21,8 +21,22 @@ namespace IDMSFormNameGenerator.Pages
     /// </summary>
     public partial class FileNameGenerator : UserControl
     {
-        readonly List<string> StateCodes = new(){ "MULTI", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "VI", "WA", "WV", "WI", "WY" };
-        readonly List<string> DocTypes = new(){ "Internal Form", "Third Party Form", "Multi-State / Federal Form", "Retail Installment Contract", "Vendor Form" };
+        readonly List<string> StateCodes = new() { "MULTI", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "VI", "WA", "WV", "WI", "WY" };
+        readonly List<string> DocTypes = new() { "Internal Form", "Third Party Form", "Multi-State / Federal Form", "Retail Installment Contract", "Vendor Form" };
+        readonly Dictionary<string, string> Abbreviations = new() 
+        {
+            { "Retail Installment Contract", "RISC" },
+            { "RetailInstallmentContract", "RISC" },
+            { "Agreement To Provide Insurance", "AgrmntToProviceIns" },
+            { "AgreementToProvideInsurance", "AgrmntToProviceIns" },
+            { "Purchase Agreement", "RPA" },
+            { "PurchaseAgreement", "RPA" },
+            { "Odometer", "Odom" },
+            { "Disclosure", "Disc" },
+            { "Application", "App" },
+            { "Statement", "Stmnt" },
+            { "Insurance", "Ins" }
+        };
         public FileNameGenerator()
         {
             InitializeComponent();
@@ -37,19 +51,33 @@ namespace IDMSFormNameGenerator.Pages
 
         private void UpdateFileName()
         {
-            txtFileName.Text = cboDocType.Text switch
+            string name = cboDocType.Text switch
             {
                 "Internal Form" => $"{txtIDMS.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
-                "Third Party Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{txtCode.Text}_{txtDate.Text}_{txtVariation.Text}",
+                "Third Party Form" => $"{txtDlrName.Text}_{GetAbbreviation(txtFormName.Text)}_{txtCode.Text}_{txtDate.Text}_{txtVariation.Text}",
                 "Multi-State / Federal Form" => $"{cboStates.Text}_{txtFormName.Text}_{txtCode.Text}_{txtDate.Text}_{txtVariation.Text}",
-                "Retail Installment Contract" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{txtFormName.Text}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
-                "Vendor Form" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{txtFormName.Text}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                "Retail Installment Contract" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{GetAbbreviation(txtFormName.Text)}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                "Vendor Form" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{GetAbbreviation(txtFormName.Text)}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
                 _ => "Unreachable"
             };
+
+            name = name.Replace(" ", "");
+
+            if (name.Length > 50)
+            {
+                name = GetAbbreviation(name);
+            }
+            
+            if (name.Length > 50)
+                txtFileName.Foreground = new SolidColorBrush(Colors.Red);
+            else
+                txtFileName.Foreground = new SolidColorBrush(Colors.White);
+
+            txtFileName.Text = name;
         }
         private void UpdateDocName()
         {
-            txtFileName_Copy.Text = cboDocType.Text switch
+            string name = cboDocType.Text switch
             {
                 "Internal Form" => $"{txtDlrName.Text}_{txtFormName.Text}",
                 "Third Party Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
@@ -58,9 +86,33 @@ namespace IDMSFormNameGenerator.Pages
                 "Vendor Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{cboStates.Text}_{txtVariation.Text}_{txtDate.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
                 _ => "Unreachable"
             };
+
+            if (name.Length > 50)
+            {
+                name = GetAbbreviation(name);
+            }
+            
+            if (name.Length > 50)
+                txtFileName_Copy.Foreground = new SolidColorBrush(Colors.Red);
+            else
+                txtFileName_Copy.Foreground = new SolidColorBrush(Colors.White);
+
+
+
+            txtFileName_Copy.Text = name;
         }
 
-        private void UpdateFileName(object sender, EventArgs e)
+        private string GetAbbreviation(string input)
+        {
+            foreach (var item in Abbreviations)
+            {
+                input = input.Replace(item.Key, item.Value);
+            }
+
+            return input;
+        }
+        
+            private void UpdateFileName(object sender, EventArgs e)
         {
             UpdateFileName();
             UpdateDocName();
