@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Pages="clr-namespace:IDMSFormNameGenerator.Pages" xmlns:local="clr-namespace:IDMSFormNameGenerator" x:Name="Background" x:Class="IDMSFormNameGenerator.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="{x:Null}" Icon="/Resources/AMLogo.ico" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResize" MinWidth="800" MinHeight="450">
+        Title="MainWindow" Height="450" Width="800" Background="{x:Null}" Icon="/IDMSLogoSmall.png" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResize" MinWidth="800" MinHeight="450">
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="50" ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}" />
@@ -41,35 +41,9 @@
                                 <GradientStop Color="#001E1844" Offset="1"/>
                             </LinearGradientBrush>
                         </Grid.Background>
-                        <StackPanel Width="50" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,50" Grid.RowSpan="2">
 
-
-                            <Button x:Name="btnHome" Style="{DynamicResource ButtonStyle1}" Height="50" Width="50" Margin="0,55,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Click="Button_Click" Visibility="Hidden">
-                                <Image Height="45" Source="/Resources/home.png" Width="45" OpacityMask="Black"/>
-                            </Button>
-                            <Button x:Name="btnNameGen" Style="{DynamicResource ButtonStyle1}" Height="50" Width="50" Margin="0,5,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Click="Button_Click_1" Visibility="Hidden">
-                                <Image Height="45" Width="45" Source="/Resources/file.png" />
-                            </Button>
-                            <Button x:Name="btnNotes" Style="{DynamicResource ButtonStyle1}" Height="50" Width="50" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Click="Button_Click_4" Visibility="Hidden">
-                                <Image Height="45" Width="45" Source="/Resources/edit.png" />
-                            </Button>
-                            <Button x:Name="btnPrompts" Style="{DynamicResource ButtonStyle1}" Height="50" Width="50" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Click="btnPrompts_Click" Visibility="Hidden" >
-                                <Image Height="45" Width="45" Source="/Resources/prompt.png" />
-                            </Button>
-                            <Button x:Name="btnCLI" Style="{DynamicResource ButtonStyle1}" Height="50" Width="50" Margin="0,5,0,0" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Click="Button_Click_2" Visibility="Hidden">
-                                <Image Height="45" Width="45" Source="/Resources/database.png" />
-                            </Button>
-                        </StackPanel>
-                        <Button x:Name="btnSettings" Grid.Row="1" Style="{DynamicResource ButtonStyle1}" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Height="49" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Click="Button_Click_3" Visibility="Hidden">
-                            <Image Height="45" Source="/Resources/settings_gear.png" Width="45" OpacityMask="Black" VerticalAlignment="Stretch"/>
-                        </Button>
                     </Grid>
-                    <Pages:HomePage Visibility="Hidden" x:Name="HomePage" Grid.Row="1" Grid.Column="1"/>
                     <Pages:FileNameGenerator x:Name="FileNameGen" Grid.Row="1" Grid.Column="1" Loaded="FileNameGen_Loaded"/>
-                    <Pages:ClientInfoReport Visibility="Hidden" x:Name="CIR" Grid.Row="1" Grid.Column="1"/>
-                    <Pages:Notes Visibility="Hidden" x:Name="Notes" Grid.Row="1" Grid.Column="1"/>
-                    <local:SettingsPage x:Name="Settings" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
-                    <Pages:PromptCopier x:Name="Prompts" Visibility="Hidden" Grid.Row="1" Grid.Column="1"/>
                     <Grid x:Name="grdTitle" Grid.ColumnSpan="2">
                         <Grid.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -88,6 +62,7 @@
 		Grid.Column="0"
 		Margin="15,0,473,-3"
 		Source="/Resources/IDMSLogo.png" Grid.ColumnSpan="2" HorizontalAlignment="Left" />
+
                         <Button x:Name="MinimizeButton"
 		Grid.Column="3"
 		Click="OnMinimizeButtonClick"
@@ -135,6 +110,7 @@
 			Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
 			StrokeThickness="1" />
                         </Button>
+                        <Label x:Name="lblVersion" Grid.Column="1" Content="v" HorizontalAlignment="Left" Margin="238,26,0,0" VerticalAlignment="Top" Foreground="#FFA29393"/>
                     </Grid>
                 </Grid>
             </Grid>

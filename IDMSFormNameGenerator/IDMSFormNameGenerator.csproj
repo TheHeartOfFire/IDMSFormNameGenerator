@@ -5,9 +5,12 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PackageIcon>IDMSLogoSmall.png</PackageIcon>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+    <ApplicationIcon>Resources\IDMSLogoSmall.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <PackageIcon>AMLogo.ico</PackageIcon>
-    <ApplicationIcon>Resources\AMLogo.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,13 +29,14 @@
     <None Remove="excel.png" />
     <None Remove="file.png" />
     <None Remove="home.png" />
+    <None Remove="IDMSLogoSmall.png" />
     <None Remove="logo-white.png" />
     <None Remove="msft.png" />
     <None Remove="prompt.png" />
-    <None Remove="Resources\AMLogo.ico" />
     <None Remove="Resources\download.svg" />
     <None Remove="Resources\file.png" />
     <None Remove="Resources\IDMSLogo.png" />
+    <None Remove="Resources\IDMSLogoSmall.ico" />
     <None Remove="Resources\logo-white.png" />
     <None Remove="SalesForce.png" />
     <None Remove="settings_gear.png" />
@@ -41,9 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\AMLogo.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="IDMSLogoSmall.png" />
     <Content Include="Resources\download.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -53,7 +55,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.39" />
+    <PackageReference Include="Clowd.Squirrel" Version="2.9.40" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
@@ -78,6 +80,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\GitHub-logo-White.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\IDMSLogoSmall.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\logo-white.png">
@@ -119,6 +124,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\IDMSLogoSmall.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

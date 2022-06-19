@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Squirrel;
 
 namespace IDMSFormNameGenerator
 {
@@ -26,14 +20,23 @@ namespace IDMSFormNameGenerator
 
         public MainWindow()
         {
-            SavedItems.Settings.Load();
             InitializeComponent();
-            Pages.Add(HomePage);
             Pages.Add(FileNameGen);
-            Pages.Add(CIR);
-            Pages.Add(Settings);
-            Pages.Add(Notes);
-            Pages.Add(Prompts);
+            AddVersionNumber();
+            CheckForUpdates();
+        }
+        
+        private void AddVersionNumber()
+        {
+            var assy = Assembly.GetExecutingAssembly();
+            var version = FileVersionInfo.GetVersionInfo(assy.Location);
+            lblVersion.Content += version.FileVersion;
+        }
+        
+        private async Task CheckForUpdates()
+        {
+            using var manager = new UpdateManager(@"https://solerainc-my.sharepoint.com/:f:/r/personal/dakota_jordan_solera_com/Documents/Automatic%20Updates?csf=1&web=1&e=E0h5Oc");
+            await manager.UpdateApp();
         }
 
         private void OnMinimizeButtonClick(object sender, RoutedEventArgs e)
@@ -174,43 +177,9 @@ namespace IDMSFormNameGenerator
             public POINT ptMaxTrackSize;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            CloseAllPages();
-            HomePage.Visibility = Visibility.Visible;
-        }
 
         private void CloseAllPages() => Pages.ForEach(Page => Page.Visibility = Visibility.Hidden);
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            CloseAllPages();
-            FileNameGen.Visibility = Visibility.Visible;
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            CloseAllPages();
-            CIR.Visibility = Visibility.Visible;
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            CloseAllPages();
-            Settings.Visibility = Visibility.Visible;
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            CloseAllPages();
-            Notes.Visibility = Visibility.Visible;
-        }
-
-        private void btnPrompts_Click(object sender, RoutedEventArgs e)
-        {
-            CloseAllPages();
-            Prompts.Visibility = Visibility.Visible;
-        }
 
         private void FileNameGen_Loaded(object sender, RoutedEventArgs e)
         {
