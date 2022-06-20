@@ -49,24 +49,23 @@ namespace IDMSFormNameGenerator.Pages
             cboDocType.SelectedIndex = 0;
         }
 
+        private static string JoinParts(params string[] parts) => string.Join('_', parts.Where(c => !string.IsNullOrEmpty(c)));
         private void UpdateFileName()
         {
             string name = cboDocType.Text switch
             {
-                "Internal Form" => $"{txtIDMS.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
-                "Third Party Form" => $"{txtDlrName.Text}_{GetAbbreviation(txtFormName.Text)}_{txtCode.Text}_{txtDate.Text}_{txtVariation.Text}",
-                "Multi-State / Federal Form" => $"{cboStates.Text}_{txtFormName.Text}_{txtCode.Text}_{txtDate.Text}_{txtVariation.Text}",
-                "Retail Installment Contract" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{GetAbbreviation(txtFormName.Text)}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
-                "Vendor Form" => $"{cboStates.Text}_{txtCode.Text}_{txtDate.Text}_{GetAbbreviation(txtFormName.Text)}_{txtVariation.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                "Internal Form" => JoinParts(txtIDMS.Text, txtFormName.Text, txtDate.Text, txtVariation.Text),
+                "Third Party Form" => JoinParts(txtDlrName.Text, GetAbbreviation(txtFormName.Text), txtCode.Text, txtDate.Text, txtVariation.Text),
+                "Multi-State / Federal Form" => JoinParts(cboStates.Text, txtFormName.Text, txtCode.Text, txtDate.Text, txtVariation.Text),
+                "Retail Installment Contract" => JoinParts(cboStates.Text, txtCode.Text, txtDate.Text, GetAbbreviation(txtFormName.Text), txtVariation.Text, (tglV2.IsOn == true ? "IDMS" : "")),
+                "Vendor Form" => JoinParts(cboStates.Text, txtCode.Text, txtDate.Text, GetAbbreviation(txtFormName.Text), txtVariation.Text, (tglV2.IsOn == true ? "IDMS" : "")),
                 _ => "Unreachable"
             };
 
             name = name.Replace(" ", "");
 
             if (name.Length > 50)
-            {
                 name = GetAbbreviation(name);
-            }
             
             if (name.Length > 50)
                 txtFileName.Foreground = new SolidColorBrush(Colors.Red);
@@ -75,29 +74,27 @@ namespace IDMSFormNameGenerator.Pages
 
             txtFileName.Text = name;
         }
+
+
         private void UpdateDocName()
         {
             string name = cboDocType.Text switch
             {
-                "Internal Form" => $"{txtDlrName.Text}_{txtFormName.Text}",
-                "Third Party Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
-                "Multi-State / Federal Form" => $"{cboStates.Text}_{txtFormName.Text}_{txtDate.Text}_{txtVariation.Text}",
-                "Retail Installment Contract" => $"{txtFormName.Text}_{cboStates.Text}_{txtVariation.Text}_{txtDate.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
-                "Vendor Form" => $"{txtDlrName.Text}_{txtFormName.Text}_{cboStates.Text}_{txtVariation.Text}_{txtDate.Text}{(tglV2.IsOn == true ? "_IDMS" : "")}",
+                "Internal Form" => JoinParts(txtDlrName.Text, txtFormName.Text),
+                "Third Party Form" => JoinParts(txtDlrName.Text, txtFormName.Text, txtDate.Text, txtVariation.Text),
+                "Multi-State / Federal Form" => JoinParts(cboStates.Text, txtFormName.Text, txtDate.Text, txtVariation.Text),
+                "Retail Installment Contract" => JoinParts(txtFormName.Text, cboStates.Text, txtVariation.Text, txtDate.Text, (tglV2.IsOn == true ? "IDMS" : "")),
+                "Vendor Form" => JoinParts(txtDlrName.Text, txtFormName.Text, cboStates.Text, txtVariation.Text, txtDate.Text, (tglV2.IsOn == true ? "IDMS" : "")),
                 _ => "Unreachable"
             };
 
             if (name.Length > 50)
-            {
                 name = GetAbbreviation(name);
-            }
             
             if (name.Length > 50)
                 txtFileName_Copy.Foreground = new SolidColorBrush(Colors.Red);
             else
                 txtFileName_Copy.Foreground = new SolidColorBrush(Colors.White);
-
-
 
             txtFileName_Copy.Text = name;
         }

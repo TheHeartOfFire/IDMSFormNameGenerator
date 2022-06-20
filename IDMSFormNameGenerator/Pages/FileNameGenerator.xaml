@@ -417,12 +417,8 @@
         <Controls:NewTextBox x:Name="txtDlrName" OnTextChanged="UpdateFileName" Text="" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5"/>
         <Controls:NewTextBox x:Name="txtVariation" OnTextChanged="UpdateFileName" Text="" Grid.Row="1" Grid.Column="2" Margin="5,5,5,5"/>
         <Label x:Name="lblName" Content="Form Name" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="2" Width="114"/>
-        <Controls:ToggleSwitch x:Name="tglFormNameTitle" HorizontalAlignment="Left" Height="22" VerticalAlignment="Center" Width="50" Margin="121,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFileName" IsOn="True" Grid.Row="2"/>
-        <Label x:Name="lblTitleCase" Content="Title" HorizontalAlignment="Left" Margin="176,0,0,0" Foreground="MediumSlateBlue" Grid.Row="2" Width="32" VerticalAlignment="Bottom" Height="26"/>
         <Controls:NewTextBox x:Name="txtFormName" OnTextChanged="UpdateFileName" Grid.Row="3" Margin="5,5,5,5" Grid.ColumnSpan="3"/>
         <Label x:Name="lblCode" Content="Form Code" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Grid.Row="4" Width="107"/>
-        <Controls:ToggleSwitch x:Name="tglFormCodeCAPS" HorizontalAlignment="Left" Height="22" VerticalAlignment="Bottom" Width="50" Margin="116,0,0,0" BorderThickness1="5" MouseLeftButtonDown="UpdateFileName" IsOn="True" Grid.Row="4"/>
-        <Label x:Name="lblCodeCaps" Content="CAPS" HorizontalAlignment="Left" Margin="171,0,0,0" VerticalAlignment="Bottom" Foreground="MediumSlateBlue" Grid.Row="4" Width="38" Height="26"/>
         <Controls:NewTextBox x:Name="txtCode" OnTextChanged="UpdateFileName" Grid.Row="5" Margin="5,5,5,5"/>
         <Label x:Name="lblDate" Content="Revision Date" HorizontalAlignment="Left" Background="{x:Null}" Foreground="MediumSlateBlue" FontSize="20" Margin="5,0,0,0" Grid.Row="4" Width="130" Grid.Column="1"/>
         <Controls:NewTextBox x:Name="txtDate" OnTextChanged="UpdateFileName" Grid.Row="5" Grid.Column="1" Margin="5,5,5,5"/>

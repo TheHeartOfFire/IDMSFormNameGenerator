@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Pages="clr-namespace:IDMSFormNameGenerator.Pages" xmlns:local="clr-namespace:IDMSFormNameGenerator" x:Name="Background" x:Class="IDMSFormNameGenerator.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="{x:Null}" Icon="/IDMSLogoSmall.png" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResize" MinWidth="800" MinHeight="450">
+        Title="MainWindow" Height="450" Width="800" Background="{x:Null}" Icon="/IDMSLogoSmall.png" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" MinWidth="800" MinHeight="450">
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="50" ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}" />
