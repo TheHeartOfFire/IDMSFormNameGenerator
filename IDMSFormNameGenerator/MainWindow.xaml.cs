@@ -35,7 +35,7 @@ namespace IDMSFormNameGenerator
         
         private async Task CheckForUpdates()
         {
-            using var manager = new UpdateManager(@"https://solerainc-my.sharepoint.com/:f:/r/personal/dakota_jordan_solera_com/Documents/Automatic%20Updates?csf=1&web=1&e=E0h5Oc");
+            using var manager = new GithubUpdateManager(@"https://github.com/TheHeartOfFire/IDMSFormNameGenerator");
             await manager.UpdateApp();
         }
 
